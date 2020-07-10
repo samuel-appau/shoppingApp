@@ -1,27 +1,32 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { View, StyleSheet,Text,Image } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import Menu from '../navigation/Menu';
+import MenuButton from '../components/Menubar'
 
-export default function LinksScreen() {
+export default function LinksScreen({navigation}) {
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+          <View style={styles.container}>  
+          <View style={{borderBottomColor:'#000',marginTop:18,flexDirection:'row',borderBottomWidth:1,borderBottomColor:'black'}}>
+          <MenuButton  navigation={navigation}/>
+          <Text style={{fontSize:20,fontWeight:'bold',marginLeft:69}}>SHOPPING APP</Text>
+          <Image  source={require('../assets/images/logo.jpg')}  style={{width:40,height:40,marginTop:-9}} />
+      </View>
+          </View>
   );
 }
 
-LinksScreen.navigationOptions = {
-  title: 'Links',
-};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+    
   },
+  Text:{
+    alignItems:'center',
+    justifyContent:'center',
+    padding:190
+  }
 });
